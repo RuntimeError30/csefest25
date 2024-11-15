@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <!-- Add GSAP and ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <title>{{ event.title }} - Event Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff4701',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 min-h-screen font-sans text-gray-900 antialiased" style="font-family: 'Montserrat', sans-serif;"> 
+    <div class="container mx-auto px-4 py-8 md:py-12">
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <div class="p-6 md:p-8 lg:p-10">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">{{ event.title }}</h1>
+                <div class="flex flex-wrap items-center text-gray-600 mb-8 space-y-2 md:space-y-0 md:space-x-6">
+                    <span class="flex items-center w-full md:w-auto"><i class="fas fa-tag text-primary mr-2"></i>{{ event.category }}</span>
+                    <span class="flex items-center w-full md:w-auto"><i class="far fa-calendar-alt text-primary mr-2"></i>Last Registration: {{ event.registration_LastDate }}</span>
+                </div>
+                <p class="text-gray-700 mb-8 text-lg leading-relaxed">{{ event.detailed_description }}</p>
+                
+                <div class="bg-gray-50 p-6 rounded-lg mb-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Registration Fee</h2>
+                    <p class="text-xl font-semibold">{{ event.registration_fee }}</p>
+                </div>
+
+                {% if guidelines %}
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold text-primary mb-4">Guidelines</h2>
+                        <div class="space-y-4">
+                            {% for guide in guidelines %}
+                                <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col md:flex-row items-start md:items-center justify-between">
+                                    <span class="text-gray-700 font-medium mb-2 md:mb-0">{{ guide.guideline_Name }}</span>
+                                    <a href="{% url 'view_guideline' guide.id %}" target="_blank" class="bg-primary text-white px-4 py-2 rounded-full transition duration-300 ease-in-out hover:bg-opacity-90 flex items-center justify-center w-full md:w-auto">
+                                        <i class="fas fa-file-pdf mr-2"></i>SHOW GUIDELINES
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+
+                <a href="{{ event.registration_Link }}" target="_blank" class="inline-flex mb-20 items-center justify-center bg-primary text-white font-medium px-6 py-3 rounded-full transition duration-300 ease-in-out hover:bg-opacity-90 shadow-md hover:shadow-lg w-full md:w-auto mt-6">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Register Now
+                </a>
+
+            {% if timeline_fields %}
+                <div class="bg-gray-50 p-6 md:p-8 lg:p-10 border-t border-gray-200">
+                    <h2 class="text-2xl md:text-3xl font-bold text-primary mb-6">Event Timeline</h2>
+                    <ul class="space-y-4">
+                        {% for timeline in timeline_fields %}
+                            {% if timeline %}
+                                <li class="flex items-start">
+                                    <i class="fas fa-clock text-primary mr-4 mt-1"></i>
+                                    <span class="text-gray-700">{{ timeline }}</span>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            {% if prizes %}
+                <div class="p-6 md:p-8 lg:p-10 border-t border-gray-200">
+                    <h2 class="text-2xl md:text-3xl font-bold text-primary mb-6">Prize Money</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {% if prizes.first_prize %}<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"><span class="font-bold text-primary">1st Prize:</span> {{ prizes.first_prize }}</div>{% endif %}
+                        {% if prizes.second_prize %}<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"><span class="font-bold text-primary">2nd Prize:</span> {{ prizes.second_prize }}</div>{% endif %}
+                        {% if prizes.third_prize %}<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"><span class="font-bold text-primary">3rd Prize:</span> {{ prizes.third_prize }}</div>{% endif %}
+                        {% if prizes.fourth_prize %}<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"><span class="font-bold text-primary">4th Prize:</span> {{ prizes.fourth_prize }}</div>{% endif %}
+                        {% if prizes.fifth_prize %}<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"><span class="font-bold text-primary">5th Prize:</span> {{ prizes.fifth_prize }}</div>{% endif %}
+                        {% if prizes.sixth_prize %}<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"><span class="font-bold text-primary">6th Prize:</span> {{ prizes.sixth_prize }}</div>{% endif %}
+                        {% if prizes.seventh_prize %}<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"><span class="font-bold text-primary">7th Prize:</span> {{ prizes.seventh_prize }}</div>{% endif %}
+                        {% if prizes.eight_prize %}<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"><span class="font-bold text-primary">8th Prize:</span> {{ prizes.eight_prize }}</div>{% endif %}
+                        {% if prizes.nineth_prize %}<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"><span class="font-bold text-primary">9th Prize:</span> {{ prizes.nineth_prize }}</div>{% endif %}
+                        {% if prizes.tenth_prize %}<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"><span class="font-bold text-primary">10th Prize:</span> {{ prizes.tenth_prize }}</div>{% endif %}
+                        {% if prizes.Eleventh_to_Twenty_prize %}<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"><span class="font-bold text-primary">11th to 20th Prize:</span> {{ prizes.Eleventh_to_Twenty_prize }}</div>{% endif %}
+                        {% if prizes.Twentyoneth_to_Fiftyth_prize %}<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"><span class="font-bold text-primary">21st to 50th Prize:</span> {{ prizes.Twentyoneth_to_Fiftyth_prize }}</div>{% endif %}
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if contacts %}
+                <div class="bg-gray-50 p-6 md:p-8 lg:p-10 border-t border-gray-200">
+                    <h2 class="text-2xl md:text-3xl font-bold text-primary mb-6">For any queries</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {% for contact in contacts %}
+                            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-semibold text-xl mb-3 text-primary">{{ contact.name }}</h3>
+                                <p class="text-gray-600 mb-2">{{ contact.designation }}</p>
+                                <p class="text-gray-700 mb-2 flex items-center"><i class="fas fa-phone text-primary mr-3"></i>{{ contact.phone_no }}</p>
+                                <p class="text-gray-700 flex items-center"><i class="fas fa-envelope text-primary mr-3"></i>{{ contact.email }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
