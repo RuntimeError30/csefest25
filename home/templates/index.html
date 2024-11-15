@@ -1,273 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- Add GSAP and ScrollTrigger CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <title>UIU CSE FEST 2025</title>
-  </head>
-  <body class="relative" style="font-family: 'Montserrat', sans-serif;">
-    <section>
-      <section id="navbar" class="z-10 sticky inset-0 transition-transform duration-[900ms]" style="backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.111);">
-        <div id="scrollLoader" class="absolute top-0 left-0 h-1 " style="background: #ff4701;"></div>
-        <nav class="navbar-nav px-6 flex justify-between items-center ">
-          <!-- Logo -->
-          <div class="font-bold">
-            <a href="./"> {% load static %} <img src="{% static 'blacklogo.png' %}" class="w-16 md:w-24" alt="Logo" />
-            </a>
-          </div>
-          <!-- Menu Toggle Button (visible on small screens) -->
-          <button class="text-black md:hidden focus:outline-none" onclick="toggleMenu()">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <!-- Add GSAP and ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <title>UIU CSE FEST 2025</title>
+</head>
+
+<body class="relative" style="font-family: 'Montserrat', sans-serif;">
+  <section>
+    <section id="navbar" class="z-10 sticky inset-0 transition-transform duration-[900ms]"
+      style="backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.111);">
+      <div id="scrollLoader" class="absolute top-0 left-0 h-1 " style="background: #ff4701;"></div>
+      <nav class="navbar-nav px-6 flex justify-between items-center ">
+        <!-- Logo -->
+        <div class="font-bold">
+          <a href="./"> {% load static %} <img src="{% static 'blacklogo.png' %}" class="w-16 md:w-24" alt="Logo" />
+          </a>
+        </div>
+        <!-- Menu Toggle Button (visible on small screens) -->
+        <button class="text-black md:hidden focus:outline-none" onclick="toggleMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+        <!-- Desktop Navigation Links -->
+        <ul id="desktopMenu" class="hidden md:flex space-x-10 items-center text-black text-xs">
+          <li>
+            <a href="">Home</a>
+          </li>
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#event">Events</a>
+          </li>
+          <li>
+            <a href="#announcements">Announcements</a>
+          </li>
+          <li>
+            <a href="">FAQ</a>
+          </li>
+          <li>
+            <a href="">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <!-- Mobile Menu -->
+    <div id="menu" class="hidden fixed inset-0 w-full flex justify-center bg-black/60 backdrop-blur-xl">
+      <div class="w-11/12 max-w-md bg-white  rounded-3xl p-6 text-black text-center space-y-5">
+        <div class="flex justify-end"> > <button onclick="toggleMenu()" class="p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
             </svg>
           </button>
-          <!-- Desktop Navigation Links -->
-          <ul id="desktopMenu" class="hidden md:flex space-x-10 items-center text-black text-xs">
-            <li>
-              <a href="">Home</a>
-            </li>
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#event">Events</a>
-            </li>
-            <li>
-              <a href="#announcements">Announcements</a>
-            </li>
-            <li>
-              <a href="">FAQ</a>
-            </li>
-            <li>
-              <a href="">Contact</a>
-            </li>
-          </ul>
-        </nav>
-      </section>
-      <!-- Mobile Menu -->
-      <div id="menu" class="hidden fixed inset-0 w-full flex justify-center bg-black/60 backdrop-blur-xl">
-        <div class="w-11/12 max-w-md bg-white rounded-3xl p-6 text-black text-center space-y-5">
-          <div class="flex justify-end"> > <button onclick="toggleMenu()" class="p-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 6 6 18" />
-                <path d="m6 6 12 12" />
-              </svg>
-            </button>
+        </div>
+        <ul class="space-y-5 text-sm">
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#event">Events</a>
+          </li>
+          <li>
+            <a href="#announcements">Announcements</a>
+          </li>
+          <li>
+            <a href="">FAQ</a>
+          </li>
+          <li>
+            <a href="">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-full  ">
+      <div class="relative h-screen flex items-center -top-20 justify-center">
+        <div class="relative w-full h-full flex items-center justify-center">
+          <!-- Background Image -->
+          <div class="w-full h-full flex items-center justify-center"> {% load static %} <img
+              src="{% static 'bgtxt.png' %}" alt="Background Text" class="w-full h-auto" />
           </div>
-          <ul class="space-y-5 text-xl">
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#event">Events</a>
-            </li>
-            <li>
-              <a href="#announcements">Announcements</a>
-            </li>
-            <li>
-              <a href="">FAQ</a>
-            </li>
-            <li>
-              <a href="">Contact</a>
-            </li>
-          </ul>
+          <!-- Centered Retro PC Image -->
+          <div
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+            {% load static %} <img src="{% static 'retrpc.png' %}" alt="Retro PC" class="w-1/3 float" />
+          </div>
         </div>
       </div>
-      <div class="w-full  ">
-        <div class="relative h-screen flex items-center -top-20 justify-center">
-          <div class="relative w-full h-full flex items-center justify-center">
-            <!-- Background Image -->
-            <div class="w-full h-full flex items-center justify-center"> {% load static %} <img src="{% static 'bgtxt.png' %}" alt="Background Text" class="w-full h-auto" />
-            </div>
-            <!-- Centered Retro PC Image -->
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"> {% load static %} <img src="{% static 'retrpc.png' %}" alt="Retro PC" class="w-1/3 float" />
-            </div>
-          </div>
-        </div>
-        <div class="w-full justify-center text-center relative bottom-60 ">
-          <h1 class="text-xl font-semibold">Prize Money</h1>
-          <h1 class="animate-pulse transition-all w-full font-black flex justify-center text-3xl uppercase">10 <span style="color:#ff4701;" class="uppercase">&nbsp;lacks</span>&nbsp;75 thousands </h1>
-        </div>
+      <div class="w-full justify-center text-center relative bottom-60 ">
+        <h1 class="text-xl font-semibold">Prize Money</h1>
+        <h1 class="animate-pulse transition-all w-full font-black flex justify-center md:text-3xl uppercase">10 <span
+            style="color:#ff4701;" class="uppercase">&nbsp;lacks</span>&nbsp;75 thousands </h1>
       </div>
-      <!-- About -->
-      <section class="reveal min-h-screen z-50 bg-black p-10">
-        <div class="w-full flex flex-col md:flex-row p-8 md:p-20 text-white mt-20 md:mt-40 transition-opacity duration-300" id="about">
-          <div class="leading-tight w-full grid justify-center md:justify-start">
-            <h1 class="text-gradient text-lg md:text-xl">Welcome to</h1>
-            <h1 class="text-4xl md:text-7xl font-bold">UIU CSE FEST 2025</h1>
-            <p class="text-start leading-6 mt-6 md:mt-20 text-base md:text-lg md:w-[40rem]"> Welcome to UIU CSE Fest 2025, where talent, creativity, and technology unite! This year’s event offers six exciting challenges in programming, software development, and robotics, designed to inspire the next generation of tech enthusiasts. Join students and experts for competitive coding, hands-on workshops, and networking sessions that showcase skills, foster innovation, and build connections. Whether you’re here to compete, learn, or connect, UIU CSE Fest 2025 is an unforgettable experience in technology and innovation. </p>
-          </div>
-          <svg viewBox="0 0 100 100" width="60" height="60" class="mt-8 md:mt-0 md:ml-8">
-            <defs>
-              <path id="circle" d="
+    </div>
+    <!-- About -->
+    <section class="reveal min-h-screen z-50 bg-black p-10">
+      <div
+        class="w-full flex flex-col md:flex-row p-8 md:p-20 text-white mt-20 md:mt-40 transition-opacity duration-300"
+        id="about">
+        <div class="leading-tight w-full grid justify-center md:justify-start">
+          <h1 class="text-gradient text-lg md:text-xl">Welcome to</h1>
+          <h1 class="text-4xl md:text-7xl font-bold">UIU CSE FEST 2025</h1>
+          <p class="text-start leading-6 mt-6 md:mt-20 text-base md:text-lg md:w-[40rem]"> Welcome to UIU CSE Fest 2025,
+            where talent, creativity, and technology unite! This year’s event offers six exciting challenges in
+            programming, software development, and robotics, designed to inspire the next generation of tech
+            enthusiasts. Join students and experts for competitive coding, hands-on workshops, and networking sessions
+            that showcase skills, foster innovation, and build connections. Whether you’re here to compete, learn, or
+            connect, UIU CSE Fest 2025 is an unforgettable experience in technology and innovation. </p>
+        </div>
+        <svg viewBox="0 0 100 100" width="60" height="60" class="mt-8 md:mt-0 md:ml-8">
+          <defs>
+            <path id="circle" d="
                             M 50, 50
                             m -37, 0
                             a 37,37 0 1,1 74,0
                             a 37,37 0 1,1 -74,0" />
-            </defs>
-            <text class="spinning-text" font-size="10" md:font-size="15">
-              <textPath xlink:href="#circle"> Explore All Events in the UIU CSE Fest 2025..... </textPath>
-            </text>
-          </svg>
+          </defs>
+          <text class=" spinning-text" font-size="10" md:font-size="15">
+            <textPath xlink:href="#circle"> Explore All Events in the UIU CSE Fest 2025..... </textPath>
+          </text>
+        </svg>
+      </div>
+      <div class="continuous-loop w-full p-12 flex space-x-20 justify-center"> {% load static %}
+        <!-- <img src="{% static 'logo1.png' %}" alt="Retro PC" style="width:15%;" /> -->
+        <img src="{% static 'Logo-09.png' %}" alt="Retro PC" class="aspect-auto" />
+        <img src="{% static 'Logo-10.png' %}" alt="Retro PC" class="aspect-auto" />
+        <img src="{% static 'Logo-11.png' %}" alt="Retro PC" class="aspect-auto" />
+        <img src="{% static 'Logo-08.png' %}" alt="Retro PC" class="aspect-auto" />
+        <img src="{% static 'Logo-07.png' %}" alt="Retro PC" class="aspect-auto" />
+        <img src="{% static 'Logo-13.png' %}" alt="Retro PC" class="aspect-auto" />
+      </div>
+      <!-- Events with links -->
+      <div class="w-full mt-40 space-y-10 " id="event">
+        <div>
+          <h1 class="text-white font-bold text-5xl mb-40">Events</h1>
         </div>
-        <div class="continuous-loop w-full p-12 flex space-x-20 justify-center"> {% load static %} <img src="{% static 'logo1.png' %}" alt="Retro PC" style="width:15%;" />
-          <img src="{% static 'Asset 1.png' %}" alt="Retro PC" class="aspect-auto" />
-          <img src="{% static 'Asset 2.png' %}" alt="Retro PC" class="aspect-auto" />
-          <img src="{% static 'Asset 3.png' %}" alt="Retro PC" class="aspect-auto" />
-          <img src="{% static 'Asset 4.png' %}" alt="Retro PC" class="aspect-auto" />
-          <img src="{% static 'Asset 5.png' %}" alt="Retro PC" class="aspect-auto" />
-          <img src="{% static 'Asset 6.png' %}" alt="Retro PC" class="aspect-auto" />
-        </div>
-        <!-- Events with links -->
-        <div class="w-full mt-40 space-y-10 " id="event">
-          <div>
-            <h1 class="text-white font-bold text-5xl mb-40">Events</h1>
-          </div>
-          <div class="flex flex-wrap"> {% for event in events %} <div class="reveal w-full space-y-10 p-10 mt-10 rounded-2xl text-white border border-white">
-              <h1 class="text-sm md:text-sm font-bold">Event {{ forloop.counter }}</h1>
-              <h1 class="text-4xl md:text-4xl font-bold">{{ event.title }}</h1>
-              <h1 class="text-lg md:text-lg font-bold">{{ event.category }}</h1>
-              <h1>{{ event.description }}</h1>
-              <h1>
-                <p>Last Registration Date: {{ event.regLast }}</p>
-              </h1>
-              <a href="{{ event.regLink }}" target="_blank" class="flex">
-                <span class="px-2 tracking-widest"> Register </span>
-                <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16" class="w-10">
-                  <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
-                </svg>
-              </a>
-              <a href="{% url 'eventdetails' event.signed_id %}" target="_blank" class="flex">
-                <span class="px-2 tracking-widest"> View Details</span>
-                <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16" class="w-10">
-                  <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
-                </svg>
-              </a>
-            </div> {% endfor %} </div>
-        </div>
-        <!-- Announcements Pannel -->
-        <div class="w-full mt-56" id="announcements">
-          <div>
-            <h1 class="text-white font-bold text-5xl">Announcements</h1> {% for announcement in announcements %} <div class="mt-20 text-white space-y-3">
-              <h1 class="text-3xl">{{ announcement.title }}</h1>
-              <p>Last Updated: {{ announcement.lastUpdate }}</p>
-              <p class="text-sm">{{ announcement.description }}</p>
-            </div> {% endfor %}
-          </div>
-          <div class="flex flex-wrap justify-between p-10 mt-60 mb-32 space-x-3"> {% load static %} 
-            <img src="{% static 'uiu1.jpg' %}" class="w-1/4 hover:opacity-80 space-x-2 rounded-xl" />
-            <img src="{% static 'uiu2.jpg' %}" class="w-1/4 hover:opacity-80 relative top-20 space-x-2 rounded-xl" />
-            <img src="{% static 'uiu3.jpg' %}" class="w-1/4 hover:opacity-80 rounded-xl" />
-          </div>
-      </section>
-      <section class="p-10 w-full grid justify-center">
-        <h1 class="text-xl font-bold">Message of the Honorable Vice Chancellor Sir</h1>
-        <div class="flex items-center justify-center mt-32"> {% load static %} <img src="{% static 'vc_sir.jpg' %}" class="w-56 rounded-xl space-x-2 rounded-xl" />
-          <h1 class="text-sm w-1/2 ml-20">Dear students, faculty, guests, and tech enthusiasts, welcome to the UIU CSE FEST 2025! Today, we celebrate innovation, creativity, and teamwork in computer science. This festival showcases the remarkable talents of our students and the vibrant learning environment at UIU. Thank you to our dedicated faculty and generous sponsors for making this event possible. To all participants: take every opportunity to learn, engage, and push your boundaries. Together, let’s explore new ideas, make connections, and inspire future tech leaders. Enjoy the festival, and let’s make this a memorable experience for all. Thank you!</h1>
-        </div>
-      </section>
-      <footer class="bg-black text-white py-8">
-        <div class="container mx-auto px-6 flex justify-between items-center flex-col md:flex-row">
-          <!-- Logo and Brand Info -->
-          <div class="text-center md:text-left mb-6 md:mb-0">
-            <a href="./" class="font-bold text-2xl"> {% load static %} <img src="{% static 'logoblack.png' %}" class="w-16 md:w-24" alt="Logo" />
+        <div class="flex flex-wrap"> {% for event in events %} <div
+            class="reveal w-full space-y-10 p-10 mt-10 rounded-2xl text-white border border-white">
+            <h1 class="text-sm md:text-sm font-bold">Event {{ forloop.counter }}</h1>
+            <h1 class="text-xl md:text-4xl font-bold">{{ event.title }}</h1>
+            <h1 class="text-lg md:text-lg font-bold">{{ event.category }}</h1>
+            <h1>{{ event.description }}</h1>
+            <h1>
+              <p>Last Registration Date: {{ event.regLast }}</p>
+            </h1>
+            <a href="{{ event.regLink }}" target="_blank" class="flex">
+              <span class="px-2 tracking-widest"> Register </span>
+              <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16"
+                class="w-10">
+                <path id="Path_10" data-name="Path 10"
+                  d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)">
+                </path>
+              </svg>
             </a>
-            <p class="mt-2 text-sm">© Crafted with love by Firestrator</p>
-          </div>
-          <!-- Quick Links -->
-          <div class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-10 text-center md:text-left">
-            <ul>
-              <li>
-                <a href="#" class="hover:text-gray-400">Home</a>
-              </li>
-              <li>
-                <a href="#about" class="hover:text-gray-400">About</a>
-              </li>
-              <li>
-                <a href="#events" class="hover:text-gray-400">Events</a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="#" class="hover:text-gray-400">Contact</a>
-              </li>
-              <li>
-                <a href="#" class="hover:text-gray-400">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#" class="hover:text-gray-400">Terms of Service</a>
-              </li>
-            </ul>
-          </div>
-
+            <a href="{% url 'eventdetails' event.signed_id %}" target="_blank" class="flex">
+              <span class="px-2 tracking-widest"> View Details</span>
+              <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16"
+                class="w-10">
+                <path id="Path_10" data-name="Path 10"
+                  d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)">
+                </path>
+              </svg>
+            </a>
+          </div> {% endfor %} </div>
+      </div>
+      <!-- Announcements Pannel -->
+      <div class="w-full mt-56" id="announcements">
+        <div>
+          <h1 class="text-white text-center font-bold text-3xl md:text-5xl">Announcements</h1> {% for announcement in announcements %} <div
+            class="mt-20 text-white space-y-3">
+            <h1 class="text-3xl">{{ announcement.title }}</h1>
+            <p>Last Updated: {{ announcement.lastUpdate }}</p>
+            <p class="text-sm">{{ announcement.description }}</p>
+          </div> {% endfor %}
         </div>
-      </footer>
+        <div class="md:flex md:flex-wrap justify-between p-10 mt-60 mb-32 md:space-x-3 space-y-3"> {% load static %}
+          <img src="{% static 'uiu1.jpg' %}" class="md:w-1/4 hover:opacity-80 md:space-x-2 rounded-xl" />
+          <img src="{% static 'uiu2.jpg' %}" class="md:w-1/4 hover:opacity-80 md:relative md:top-20 md:space-x-2 rounded-xl" />
+          <img src="{% static 'uiu3.jpg' %}" class="md:w-1/4 hover:opacity-80 rounded-xl" />
+        </div>
     </section>
-    <script>
-      let lastScrollTop = 0;
-      const navbar = document.getElementById("navbar");
-      const menu = document.getElementById("menu");
-      // Toggle menu visibility
-      function toggleMenu() {
-        menu.classList.toggle("hidden");
-        menu.classList.toggle("flex");
-      }
-      // Update scroll loader width based on scroll position
-      window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrollPercent = (scrollTop / docHeight) * 100;
-        document.getElementById('scrollLoader').style.width = scrollPercent + '%';
-      });
-      // GSAP Scroll Reveal Effect
-      document.addEventListener("DOMContentLoaded", function() {
-        // Check if GSAP and ScrollTrigger are loaded
-        if (typeof gsap !== "undefined" && gsap.registerPlugin) {
-          gsap.registerPlugin(ScrollTrigger);
-          // Scroll reveal effect for elements with the 'reveal' class
-          gsap.utils.toArray('.reveal').forEach((element) => {
-            gsap.from(element, {
-              scrollTrigger: {
-                trigger: element,
-                start: "top 80%", // Starts animation when element reaches 80% of viewport height
-                toggleActions: "play none none reverse",
-              },
-              opacity: 0, // Start with opacity 0
-              y: 50, // Start with element 50px below its final position
-              duration: 1, // Animation duration of 1 second
-              ease: "power2.out" // Easing for smooth reveal
-            });
-          });
-        } else {
-          console.warn("GSAP or ScrollTrigger not loaded.");
-        }
-        // Smooth scroll for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-              targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start' // Aligns top of the element with the top of the scrollable area
-              });
-            }
+    <section class="p-10 w-full grid justify-center">
+      <h1 class=" text-xl md:text-3xl font-bold">Message of the Honorable Vice Chancellor Sir</h1>
+      <div class="md:flex items-center justify-center mt-32"> {% load static %} <img src="{% static 'vc_sir.jpg' %}"
+          class="md:w-56 rounded-xl space-x-2 rounded-xl" />
+        <h1 class="text-sm md:text-2xl md:w-1/2 text-center md:ml-20 mt-4 md:mt-0">Dear students, faculty, guests, and tech enthusiasts, welcome to the UIU CSE
+          FEST 2025! Today, we celebrate innovation, creativity, and teamwork in computer science. This festival
+          showcases the remarkable talents of our students and the vibrant learning environment at UIU. Thank you to our
+          dedicated faculty and generous sponsors for making this event possible. To all participants: take every
+          opportunity to learn, engage, and push your boundaries. Together, let’s explore new ideas, make connections,
+          and inspire future tech leaders. Enjoy the festival, and let’s make this a memorable experience for all. Thank
+          you!</h1>
+      </div>
+    </section>
+    <footer class="bg-black text-white py-8">
+      <div class="container mx-auto px-6 flex justify-between items-center flex-col md:flex-row">
+        <!-- Logo and Brand Info -->
+        <div class="text-center md:text-left mb-6 md:mb-0">
+         <div class="flex justify-between items-center">
+          <a href="./" class="font-bold text-2xl"> {% load static %} <img src="{% static 'Logo-02.png' %}"
+            class="w-20 md:w-24" alt="Logo" />
+        </a>
+        <a href="./" class="font-bold text-2xl"> {% load static %} <img src="{% static 'logoblack.png' %}"
+          class="w-20 md:w-24" alt="Logo" />
+      </a>
+         </div>
+
+         <div class="sm:text-sm md:text-md">
+          <a href="./"> Want to see the Organizer Team?</a>
+         </div>
+          
+        </div>
+        <!-- Quick Links -->
+        <div class="flex justify-center items-center gap-5 md:gap-10 md:text-xl md:space-y-0 md:space-x-10 text-center md:text-left">
+          <ul>
+            <li>
+              <a href="#" class="hover:text-gray-400">Home</a>
+            </li>
+            <li>
+              <a href="#about" class="hover:text-gray-400">About</a>
+            </li>
+            <li>
+              <a href="#events" class="hover:text-gray-400">Events</a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href="#" class="hover:text-gray-400">Contact</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-400">Terms of Service</a>
+            </li>
+          </ul>
+        </div>
+        
+        
+      </div>
+      <div class="">
+        <p class=" mt-4 md:mt-8 text-sm text-center ">©United International University</p>
+      </div>
+    </footer>
+  </section>
+  <script>
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("navbar");
+    const menu = document.getElementById("menu");
+    // Toggle menu visibility
+    function toggleMenu() {
+      menu.classList.toggle("hidden");
+      menu.classList.toggle("flex");
+    }
+    // Update scroll loader width based on scroll position
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      document.getElementById('scrollLoader').style.width = scrollPercent + '%';
+    });
+    // GSAP Scroll Reveal Effect
+    document.addEventListener("DOMContentLoaded", function () {
+      // Check if GSAP and ScrollTrigger are loaded
+      if (typeof gsap !== "undefined" && gsap.registerPlugin) {
+        gsap.registerPlugin(ScrollTrigger);
+        // Scroll reveal effect for elements with the 'reveal' class
+        gsap.utils.toArray('.reveal').forEach((element) => {
+          gsap.from(element, {
+            scrollTrigger: {
+              trigger: element,
+              start: "top 80%", // Starts animation when element reaches 80% of viewport height
+              toggleActions: "play none none reverse",
+            },
+            opacity: 0, // Start with opacity 0
+            y: 50, // Start with element 50px below its final position
+            duration: 1, // Animation duration of 1 second
+            ease: "power2.out" // Easing for smooth reveal
           });
         });
+      } else {
+        console.warn("GSAP or ScrollTrigger not loaded.");
+      }
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start' // Aligns top of the element with the top of the scrollable area
+            });
+          }
+        });
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
 <style>
   /* Button and float animation styles */
