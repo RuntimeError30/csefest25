@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UIU CSE FEST 2025 - Developer Team</title>
+    <title>UIU CSE FEST 2025 - Our Team</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -33,6 +33,10 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+          ::-webkit-scrollbar {
+    display: none;
+    /* For Chrome, Safari, and Opera */
+  }
     </style>
 </head>
 <body class="min-h-screen bg-black text-white">
@@ -42,7 +46,8 @@
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center">
                     <a href="/" class="text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                        UIU CSE FEST 2025
+                        {% load static %}
+                        <img src="{% static 'logoblack.png' %}" class="w-20" alt="">
                     </a>
                 </div>
                 <a href="/" class="text-white hover:text-purple-400 transition-colors inline-flex items-center">
@@ -61,11 +66,11 @@
             <div class="text-center">
                 <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6">
                     <span class="block bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
-                        Meet Our Developer Team
+                        Meet Our Amazing Team
                     </span>
                 </h1>
                 <p class="mt-3 max-w-md mx-auto text-base text-gray-300 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-                    The talented individuals behind UIU CSE FEST 2025's digital experience
+                    The talented individuals behind UIU CSE FEST 2025's success
                 </p>
             </div>
         </div>
@@ -73,37 +78,103 @@
 
     <!-- Team Grid -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Team Member 1 -->
+        <!-- Web Developers Section -->
+        
+        <!-- Faculty Section -->
+        <h2 class="text-xl font-bold text-center mb-12 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Honorable Faculty Members</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            <!-- Faculty 1 -->
             <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-white/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500/50 group">
                 <div class="p-6">
                     <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-pink-500">
+                        {% load static %}
                         <img
-                            src="/placeholder.svg?height=400&width=400"
-                            alt="John Doe"
+                            src="{% static 'raiyan_sir.jpeg'%}"
+                            alt="Faculty 1"
+                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                    </div>
+                    <h3 class="text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                        Raiyan Rahman
+                    </h3>
+                    <p class="text-sm text-purple-200 mt-1">Lecturer, Department of Computer Science & Engineering</p>
+                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">
+                        United International University
+                    </p>
+                </div>
+            </div>
+            <!-- Faculty 2 -->
+            <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-white/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500/50 group">
+                <div class="p-6">
+                    <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-pink-500">
+                        {% load static %}
+                        <img
+                            src="{% static 'shoib_sir.jpeg'%}"
+                           
+                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                    </div>
+                    <h3 class="text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                        Shoib Ahmed Shourav
+                    </h3>
+                    <p class="text-sm text-purple-200 mt-1">Lecturer, Department of Computer Science & Engineering</p>
+                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">
+                        United International University
+                    </p>
+                </div>
+            </div>
+            <!-- Faculty 3 -->
+            <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-white/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500/50 group">
+                <div class="p-6">
+                    <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-pink-500">
+                        {% load static %}
+                        <img
+                            src="{% static 'fahim_sir.jpg'%}"
+                            alt="Faculty 3"
+                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                    </div>
+                    <h3 class="text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                        Fahim Hafiz
+                    </h3>
+                    <p class="text-sm text-purple-200 mt-1">Lecturer, Department of Computer Science & Engineering</p>
+                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">
+                        United International University
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h2 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Web Developers</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+            <!-- Web Developer 1 -->
+            <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-white/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500/50 group">
+                <div class="p-6">
+                    <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-pink-500">
+                        {% load static %}
+                        <img
+                            src="{% static 'darain.jpg' %}"
+                            alt="Web Developer 1"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                         />
                     </div>
                     <h3 class="text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
                         Mohammad Darain Khan
                     </h3>
-                    <p class="text-sm text-purple-200 mt-1">Lead Developer</p>
-                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">
-                        Frontend specialist with a passion for creating beautiful, responsive user interfaces
-                    </p>
+                    <p class="text-sm text-purple-200 mt-1">Technical Lead & FullStack Developer</p>
                     <div class="flex gap-4 mt-6">
                         <a
-                            href="https://twitter.com"
+                            href="https://www.facebook.com/mdk.fahim21/"
                             class="text-gray-400 hover:text-purple-400 transition-colors"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-                            </svg>
+                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                         </a>
                         <a
-                            href="https://github.com"
+                            href="https://github.com/RuntimeError30"
                             class="text-gray-400 hover:text-purple-400 transition-colors"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -115,37 +186,33 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Team Member 2 -->
+            <!-- Web Developer 2 -->
             <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-white/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500/50 group">
                 <div class="p-6">
                     <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-pink-500">
+                        {% load static %}
                         <img
-                            src="/placeholder.svg?height=400&width=400"
-                            alt="Jane Smith"
+                            src="{% static 'faiyaj.jpeg' %}"
+                            alt="Web Developer 2"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                         />
                     </div>
                     <h3 class="text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                        Jane Smith
+                       Mudassir Faiyaj
                     </h3>
-                    <p class="text-sm text-purple-200 mt-1">Backend Developer</p>
-                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">
-                        Database architect and API specialist focusing on scalable solutions
-                    </p>
+                    <p class="text-sm text-purple-200 mt-1">FullStack Developer</p>
+
                     <div class="flex gap-4 mt-6">
                         <a
-                            href="https://twitter.com"
+                            href="https://www.facebook.com/mdk.fahim21/"
                             class="text-gray-400 hover:text-purple-400 transition-colors"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-                            </svg>
+                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                         </a>
                         <a
-                            href="https://github.com"
+                            href="https://github.com/RuntimeError30"
                             class="text-gray-400 hover:text-purple-400 transition-colors"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -157,46 +224,72 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Team Member 3 -->
+
+        <!-- Graphics Designers Section -->
+        <h2 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Graphics Designers</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+            <!-- Graphics Designer 1 -->
+            <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-white/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500/50 group">
+                <div class="p-6">
+                    <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-pink-500">
+                        {% load static %}
+                        <img
+                            src="{% static 'zayed.jpeg'%}"
+                            alt="Graphics Designer 1"
+                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                    </div>
+                    <h3 class="text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                        A M Zayed Abdullah
+                    </h3>
+                    <p class="text-sm text-purple-200 mt-1">Lead Graphics Designer</p>
+
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Communication Members Section -->
+        <h2 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Communication Team</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Communication Member 1 -->
             <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-white/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500/50 group">
                 <div class="p-6">
                     <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-pink-500">
                         <img
                             src="/placeholder.svg?height=400&width=400"
-                            alt="Mike Johnson"
+                            alt="Communication Member 1"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                         />
                     </div>
                     <h3 class="text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                        Mike Johnson
+                        Emma Watson
                     </h3>
-                    <p class="text-sm text-purple-200 mt-1">Full Stack Developer</p>
+                    <p class="text-sm text-purple-200 mt-1">Public Relations Specialist</p>
                     <p class="mt-4 text-gray-400 text-sm leading-relaxed">
-                        Full stack developer with expertise in modern web technologies
+                        Manages media relations and external communications
                     </p>
-                    <div class="flex gap-4 mt-6">
-                        <a
-                            href="https://twitter.com"
-                            class="text-gray-400 hover:text-purple-400 transition-colors"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-                            </svg>
-                        </a>
-                        <a
-                            href="https://github.com"
-                            class="text-gray-400 hover:text-purple-400 transition-colors"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
+                </div>
+            </div>
+            <!-- Communication Member 2 -->
+            <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-white/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500/50 group">
+                <div class="p-6">
+                    <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-pink-500">
+                        <img
+                            src="/placeholder.svg?height=400&width=400"
+                            alt="Communication Member 2"
+                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
                     </div>
+                    <h3 class="text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                        David Kim
+                    </h3>
+                    <p class="text-sm text-purple-200 mt-1">Social Media Coordinator</p>
+                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">
+                        Develops and implements social media strategies for the event
+                    </p>
                 </div>
             </div>
         </div>

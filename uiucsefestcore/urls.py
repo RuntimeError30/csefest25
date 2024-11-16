@@ -17,11 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from home.views import home, eventdetails, view_guideline
+from home.views import *
 
 urlpatterns = [
     path("", home, name="home"),
     path("eventdetails/<str:signed_event_id>/", eventdetails, name="eventdetails"),
     path("guideline/<int:guideline_id>/", view_guideline, name="view_guideline"),
+    path("eventcredits/", eventcredits, name="eventcredits" ),
     path("admin/", admin.site.urls),
 ]

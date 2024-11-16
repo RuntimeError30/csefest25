@@ -48,3 +48,6 @@ def eventdetails(request, signed_event_id):
 def view_guideline(request, guideline_id):
     guideline = get_object_or_404(guidelines, id=guideline_id)
     return FileResponse(guideline.guideline_pdf, content_type='application/pdf')
+
+def eventcredits(request):
+    return render(request, "credits.html")
