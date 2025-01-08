@@ -35,7 +35,7 @@ importlib_metadata==8.2.0
 initial-setup==0.3.101
 inputs==0.5
 iso639==0.1.4
-Jinja2==3.1.4
+Jinja2==3.1.5
 jmespath==1.0.1
 kiwisolver==1.4.5
 langtable==0.0.68
